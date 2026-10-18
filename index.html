@@ -1,313 +1,621 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Divya, My Dora 💌</title>
+<title>For My Dora 💌</title>
 
 <style>
-*{box-sizing:border-box}
-body{
- margin:0;min-height:100vh;
- font-family:Georgia,serif;color:#fff5fb;
- background:radial-gradient(ellipse at top,#432958,#191329 55%,#080710);
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-#intro{
- position:fixed;inset:0;z-index:10;
- display:grid;place-items:center;text-align:center;
- padding:25px;background:radial-gradient(ellipse,#39264f,#100d1c 75%);
- transition:opacity .8s;
-}
-#intro.hide{opacity:0;pointer-events:none}
-.introbox{max-width:420px}
-.bigenv{font-size:85px;animation:float 2s infinite}
-@keyframes float{50%{transform:translateY(-8px)}}
 
-button{
- border:0;color:white;cursor:pointer;
- background:linear-gradient(135deg,#a66bff,#ff78b8);
- box-shadow:0 5px 24px #bb6aff44;
+body {
+  min-height: 100vh;
+  font-family: Georgia, serif;
+  background: linear-gradient(135deg, #fce4ec, #e8eaf6, #f3e5f5);
+  color: #594158;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  overflow-x: hidden;
 }
-.open{padding:14px 23px;border-radius:30px;font-weight:bold}
 
-main{max-width:760px;margin:auto;padding:25px 15px 90px}
-.kicker{text-align:center;color:#ddc9ef;letter-spacing:2px;font-size:12px}
+.heart {
+  position: fixed;
+  bottom: -30px;
+  color: #e89ab5;
+  opacity: .65;
+  animation: floatUp 8s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
 
-.envelope{
- height:80px;max-width:420px;margin:12px auto 20px;
- position:relative;display:grid;place-items:center;cursor:pointer;
+@keyframes floatUp {
+  to {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
 }
-.envback{
- position:absolute;inset:0;border-radius:10px;
- background:linear-gradient(135deg,#bd83ed,#f7a0ca);
-}
-.flap{
- position:absolute;inset:0 0 auto;height:60%;
- background:#ffc0df;clip-path:polygon(0 0,100% 0,50% 100%);
-}
-.seal{z-index:1;font-size:26px}
 
-.page{display:none;animation:appear .4s}
-.page.active{display:block}
-@keyframes appear{
- from{opacity:0;transform:translateY(10px)}
- to{opacity:1;transform:none}
+.container {
+  width: 100%;
+  max-width: 540px;
+  position: relative;
+  z-index: 1;
+  text-align: center;
 }
-.paper{
- background:linear-gradient(145deg,#fff9fc,#f2e8ff);
- color:#30223d;border-radius:22px;
- padding:clamp(22px,5vw,38px);
- min-height:390px;box-shadow:0 20px 60px #0005;
-}
-.num{font:12px Arial;letter-spacing:2px;color:#9562ac}
-h2{font-size:clamp(25px,6vw,34px);color:#573366}
-.letter{font-size:clamp(16px,4vw,19px);line-height:1.8;white-space:pre-line}
-.sign{text-align:right;font-style:italic;color:#8d4e92;margin-top:20px}
 
-.photos{
- display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
- gap:10px;margin:18px 0;
+h1 {
+  font-size: 2rem;
+  margin-bottom: 14px;
 }
-.photos img{
- width:100%;height:175px;object-fit:cover;
- border-radius:12px;border:4px solid white;
- background:#e4d4ee;
-}
-.photos img:last-child:nth-child(odd){
- grid-column:1/-1;max-width:70%;justify-self:center;
-}
-.controls{
- display:flex;align-items:center;justify-content:space-between;
- gap:10px;margin:18px 0;
-}
-.nav{padding:12px 15px;border-radius:25px;font-weight:bold}
-.nav:disabled{opacity:.35}
-#counter{font:13px Arial;color:#e8d9f5}
-.music{
- position:fixed;right:16px;bottom:18px;
- width:52px;height:52px;border-radius:50%;
- z-index:15;font-size:22px;
-}
-footer{text-align:center;color:#cbb9df;font-size:12px}
 
-@media(max-width:430px){
- .photos img{height:140px}
- .paper{min-height:420px}
+.subtitle {
+  line-height: 1.7;
+  margin-bottom: 22px;
+}
+
+.envelope-area {
+  margin: 35px auto;
+  cursor: pointer;
+  width: 260px;
+  height: 175px;
+  position: relative;
+  perspective: 800px;
+}
+
+.envelope {
+  position: absolute;
+  inset: 0;
+  background: #dba6bb;
+  border-radius: 8px;
+  box-shadow: 0 12px 30px #98728b40;
+}
+
+.envelope::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #efbfd0;
+  clip-path: polygon(0 0, 50% 58%, 100% 0);
+  z-index: 3;
+}
+
+.envelope::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #d48fac;
+  clip-path: polygon(0 100%, 0 0, 50% 57%, 100% 0, 100% 100%);
+  border-radius: 8px;
+  z-index: 2;
+}
+
+.letter-inside {
+  position: absolute;
+  width: 88%;
+  height: 90%;
+  background: #fffaf5;
+  top: 5%;
+  left: 6%;
+  border-radius: 5px;
+  z-index: 1;
+  transition: transform 1s ease;
+}
+
+.flap {
+  position: absolute;
+  inset: 0;
+  background: #f4cddd;
+  clip-path: polygon(0 0, 100% 0, 50% 65%);
+  transform-origin: top;
+  transition: transform .8s ease;
+  z-index: 4;
+}
+
+.seal {
+  position: absolute;
+  z-index: 5;
+  top: 58%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #b8587d;
+  color: white;
+  width: 43px;
+  height: 43px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+}
+
+.envelope-area.open .flap {
+  transform: rotateX(180deg);
+  z-index: 0;
+}
+
+.envelope-area.open .letter-inside {
+  transform: translateY(-80px);
+}
+
+.hint {
+  font-size: .95rem;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  50% { opacity: .55; }
+}
+
+#letter {
+  display: none;
+  animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.page {
+  display: none;
+  background: #fffaf7;
+  padding: 28px 22px;
+  border: 1px solid #f1d7e2;
+  border-radius: 18px;
+  box-shadow: 0 12px 35px #8b638522;
+  min-height: 370px;
+  animation: fadeIn .5s ease;
+}
+
+.page.active {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.page h2 {
+  font-size: 1.45rem;
+  color: #b8587d;
+  margin-bottom: 18px;
+}
+
+.page p {
+  line-height: 1.9;
+  font-size: 1.04rem;
+  white-space: pre-line;
+}
+
+.memory-photo {
+  width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  border-radius: 12px;
+  margin: 18px auto 0;
+  background: #f7eaf0;
+}
+
+.controls {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+button {
+  border: none;
+  padding: 12px 22px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: transform .2s;
+}
+
+button:active {
+  transform: scale(.96);
+}
+
+#prev {
+  background: #eadde8;
+  color: #594158;
+}
+
+#next, #openAgain {
+  background: #c66b91;
+  color: white;
+}
+
+#prev:disabled {
+  opacity: .4;
+  cursor: default;
+}
+
+.page-count {
+  margin-top: 14px;
+  font-size: .9rem;
+  color: #96768c;
+}
+
+#musicNote {
+  margin-top: 15px;
+  font-size: .9rem;
+  color: #96768c;
+}
+
+footer {
+  margin-top: 22px;
+  font-size: .85rem;
+  opacity: .7;
+}
+
+@media (max-width: 400px) {
+  h1 { font-size: 1.7rem; }
+  .page { padding: 24px 17px; }
+  .page p { font-size: 1rem; }
 }
 </style>
 </head>
 
 <body>
 
-<section id="intro">
- <div class="introbox">
-  <div class="bigenv">💌</div>
-  <h1>A little letter for Divya 🌷</h1>
-  <p>For my Dora — the person who made life feel safer, warmer, and less lonely.</p>
-  <button class="open" id="open">OPEN YOUR LETTER 💗</button>
-  <p style="font-size:12px">Tap to open your surprise and start the song.</p>
- </div>
-</section>
+<div class="container">
 
-<main>
-<p class="kicker">A little piece of my heart · For Divya</p>
+  <section id="intro">
+    <h1>For My Dora 🧸💗</h1>
+    <p class="subtitle">
+      A little letter for the person who made my world
+      feel a little softer, warmer, and safer.
+      <br><br>
+      Made with lots of love, just for you. 🌷
+    </p>
 
-<div class="envelope" id="envelope">
- <div class="envback"></div>
- <div class="flap"></div>
- <div class="seal">💗</div>
+    <div class="envelope-area" id="envelope"
+         role="button" tabindex="0"
+         aria-label="Open your letter">
+      <div class="envelope">
+        <div class="letter-inside"></div>
+        <div class="flap"></div>
+        <div class="seal">♡</div>
+      </div>
+    </div>
+
+    <p class="hint">Tap the envelope to open your letter 💌</p>
+  </section>
+
+  <main id="letter">
+
+    <section class="page active">
+      <h2>Dear Dora, 💌</h2>
+      <p>
+        Hey, Divya! 🥹💗
+
+        I don't even know where to begin because
+        how do I fit so much gratitude into just
+        a few pages?
+
+        But today, I want you to know something:
+        having you in my life is a gift I never
+        want to take for granted.
+
+        So, take your time and read this little
+        piece of my heart.
+      </p>
+    </section>
+
+    <section class="page">
+      <h2>From Electron to Proton ⚛️</h2>
+      <p>
+        Remember how you turned an electron into
+        a proton? 😭😂
+
+        Okay, scientifically, that might need a
+        whole different explanation, but emotionally,
+        you know exactly what I mean.
+
+        You brought a different kind of energy into
+        my life. You made me feel a little more
+        grounded, a little more understood, and
+        a little less alone.
+
+        Thank you for being part of my journey.
+      </p>
+    </section>
+
+    <section class="page">
+      <h2>My Safe Place 🫂</h2>
+      <p>
+        Sometimes, the world gets too loud,
+        and my own thoughts become too much.
+
+        But there's something comforting about
+        knowing that someone like you exists
+        in my life.
+
+        You became a safe place for me, not
+        because you had all the answers, but
+        because being understood matters.
+
+        Thank you for making ordinary moments
+        feel a little less heavy.
+      </p>
+    </section>
+
+    <section class="page">
+      <h2>Our Little Memories 📸</h2>
+      <p>
+        Some memories look small to everyone else,
+        but they mean the world to us.
+
+        The random conversations, silly jokes,
+        unexpected laughs, and little moments
+        I probably never thanked you for...
+
+        They all have a special place in my heart.
+
+        Here are a few memories I want to keep close. 💗
+      </p>
+      <img class="memory-photo" src="pic1.jpg"
+           alt="Our memory 1">
+    </section>
+
+    <section class="page">
+      <h2>Little Things, Big Meaning 🌷</h2>
+      <p>
+        It's funny how the smallest things can
+        mean the most.
+
+        A conversation at the right time.
+        A little care when I need it.
+        A laugh when nothing seems funny.
+        The comfort of being myself.
+
+        Maybe you don't always realise how much
+        those little things mean to me.
+
+        But I notice them, Dora. And I'm grateful. 🥹
+      </p>
+      <img class="memory-photo" src="pic2.jpg"
+           alt="Our memory 2">
+    </section>
+
+    <section class="page">
+      <h2>Thank You for Being You 🧸</h2>
+      <p>
+        Thank you for your kindness.
+        Thank you for your time.
+        Thank you for listening to my nonsense.
+        Thank you for all the laughs.
+        Thank you for simply being yourself.
+
+        I don't expect you to be perfect,
+        and I hope you never feel you have to be.
+
+        The person you are is already someone
+        worth appreciating.
+      </p>
+      <img class="memory-photo" src="pic3.jpg"
+           alt="Our memory 3">
+    </section>
+
+    <section class="page">
+      <h2>For the Days Ahead 🌈</h2>
+      <p>
+        Life will keep changing.
+        Our routines might change.
+        We might get busy with our own dreams.
+
+        But I hope life gives you countless reasons
+        to smile, people who treat your heart gently,
+        and courage for every difficult day.
+
+        I hope you achieve the things you dream of
+        and never forget how much you matter.
+
+        You deserve happiness, Dora. Always. 💗
+      </p>
+      <img class="memory-photo" src="pic4.jpg"
+           alt="Our memory 4">
+    </section>
+
+    <section class="page">
+      <h2>One More Memory 🌻</h2>
+      <p>
+        If someone asked me what makes a friendship
+        special, I'd say it's not just the big moments.
+
+        It's having someone with whom even the most
+        ordinary day can become a memory.
+
+        I'm thankful for the moments we've shared
+        and excited for all the good ones still ahead.
+
+        Here's another little piece of our story. 🫶🏻
+      </p>
+      <img class="memory-photo" src="pic5.jpg"
+           alt="Our memory 5">
+    </section>
+
+    <section class="page">
+      <h2>You're Appreciated, Dora 💐</h2>
+      <p>
+        I hope you know that your presence matters.
+
+        You don't have to do something extraordinary
+        every day to be important to someone.
+
+        Sometimes, simply being there is enough.
+
+        Thank you for every moment you've shared
+        with me, for every laugh, and for every
+        little thing that made this friendship ours.
+
+        I'm genuinely glad I got to know you.
+      </p>
+      <img class="memory-photo" src="pic6.jpg"
+           alt="Our memory 6">
+    </section>
+
+    <section class="page">
+      <h2>Always Your Proton ⚛️</h2>
+      <p>
+        And finally, Dora...
+
+        No matter how much I tease you,
+        how much nonsense I talk,
+        or how many times I annoy you 😭😂
+
+        Please remember that I genuinely appreciate
+        you and the friendship we share.
+
+        I'll keep cheering for you, celebrating your
+        happiness, and wishing good things for you.
+
+        Thank you for being my Dora.
+
+        From your Proton, with a grateful heart. 💗
+      </p>
+      <img class="memory-photo" src="pic7.jpg"
+           alt="Our memory 7">
+    </section>
+
+    <section class="page">
+      <h2>A Little Promise 🌷</h2>
+      <p>
+        This letter isn't a request for anything.
+
+        You don't have to find the perfect reply.
+        You don't have to do anything special.
+
+        I just wanted to make you smile and remind
+        you that your friendship has made a difference
+        in my life.
+
+        So whenever you look back at this little
+        website, I hope it brings a smile to your face.
+
+        Thank you for everything, Divya.
+        I'm lucky to call you my best friend. 🫂💗
+
+        With love,
+        Your Proton ⚛️
+      </p>
+      <button id="openAgain">Read Again 💌</button>
+    </section>
+
+    <div class="controls">
+      <button id="prev" disabled>← Previous</button>
+      <button id="next">Next →</button>
+    </div>
+
+    <p class="page-count" id="pageCount">Page 1 of 10</p>
+    <p id="musicNote">🎵 Your song is playing for you</p>
+
+  </main>
+
+  <footer>Made with love, just for Dora 💗</footer>
+
 </div>
 
-<!-- PAGE 1 -->
-<section class="page active">
-<div class="paper">
-<div class="num">PAGE 01 · THE BEGINNING</div>
-<h2>To my Dora, Divya 🌷</h2>
-<div class="letter">I don't think a simple “thank you” could ever hold everything I want to say to you.
-
-Some people enter our lives quietly and become a place our hearts can rest. Somehow, you became that person for me.
-
-This little website is for every conversation, every laugh, every time you stayed, and every little thing you might not realise mattered.</div>
-<div class="sign">With gratitude, your Proton 💌</div>
-</div>
-</section>
-
-<!-- PAGE 2 -->
-<section class="page"><div class="paper">
-<div class="num">PAGE 02 · ELECTRON TO PROTON</div>
-<h2>You changed something in me ⚛️</h2>
-<div class="letter">You always joke that you converted me from an electron into a proton — and honestly, that's such a Dora way to describe something meaningful.
-
-You brought more positivity into my world. You reminded me that even when my thoughts get too loud, someone can make things feel lighter.
-
-I'm still a work in progress, but I'm grateful for the little changes that began with you.</div>
-</div></section>
-
-<!-- PAGE 3 -->
-<section class="page"><div class="paper">
-<div class="num">PAGE 03 · MY SAFE PLACE</div>
-<h2>You became my safe place 🫶</h2>
-<div class="letter">Thank you for being someone I can talk to without making every feeling sound perfect.
-
-Thank you for listening to my random thoughts, serious moments, and all the bakwaas in between. With you, I don't always have to pretend everything is fine.
-
-You made being understood feel a little less impossible. I'll always be thankful for the comfort and trust we've built.</div>
-</div></section>
-
-<!-- PAGE 4 -->
-<section class="page"><div class="paper">
-<div class="num">PAGE 04 · THE LITTLE THINGS</div>
-<h2>It's the little things 🌼</h2>
-<div class="letter">It's not only the big moments I'll remember. It's the small check-ins, the silly jokes, the way an ordinary conversation can turn a day around, and the memories that looked simple when they happened.
-
-You may not notice every little thing you do, Dora, but some of those things have meant more to me than I can explain.
-
-Thank you for being you — without needing to do anything extraordinary.</div>
-</div></section>
-
-<!-- PAGE 5: SEVEN PHOTOS -->
-<section class="page"><div class="paper">
-<div class="num">PAGE 05 · OUR MEMORIES</div>
-<h2>Seven little memories 📸</h2>
-<div class="letter">Every picture has its own story, and every story reminds me how glad I am that our paths crossed.</div>
-
-<div class="pic">
-<img src="pic1.jpg" alt="Memory 1">
-<img src="pic2.jpg" alt="Memory 2">
-<img src="pic3.jpg" alt="Memory 3">
-<img src="pic4.jpg" alt="Memory 4">
-<img src="pic5.jpg" alt="Memory 5">
-<img src="pic6.jpg" alt="Memory 6">
-<img src="pic7.jpg" alt="Memory 7">
-</div>
-
-<p style="text-align:center">Our memories, kept close 💗</p>
-</div></section>
-
-<!-- PAGE 6 -->
-<section class="page"><div class="paper">
-<div class="num">PAGE 06 · MY FAVOURITE CHAOS</div>
-<h2>Never stop being Dora 😭</h2>
-<div class="letter">Thank you for the laughter, teasing, weird conversations, and the kind of friendship where even nonsense becomes a memory.
-
-You have this way of making ordinary things feel special without even trying. And yes, I will absolutely continue to irritate you — it's part of my job description now. 😌
-
-You're stuck with your Proton, respectfully. 😂</div>
-</div></section>
-
-<!-- PAGE 7 -->
-<section class="page"><div class="paper">
-<div class="num">PAGE 07 · WHAT I ADMIRE</div>
-<h2>I hope you see it too ✨</h2>
-<div class="letter">I hope you know that you matter beyond what you do for other people. You deserve kindness on cheerful days and on days when you don't have the energy to be cheerful at all.
-
-You don't have to fix everything or always have the right words. Your presence, honesty, and the person you are already mean a lot.
-
-I hope life gives you back some of the warmth you give to others.</div>
-</div></section>
-
-<!-- PAGE 8 -->
-<section class="page"><div class="paper">
-<div class="num">PAGE 08 · WHEREVER LIFE GOES</div>
-<h2>Different roads, same gratitude 🌙</h2>
-<div class="letter">Life will keep changing. Our routines might change, our days might get busier, and there may be times when we don't talk as much as we'd like.
-
-But wherever life takes me, I'll always be grateful that I got to know you. I'll be cheering for you, wishing good things for you, and hoping you never forget how much you deserve them.
-
-And obviously, I'll still be there to irritate you. 😁</div>
-</div></section>
-
-<!-- PAGE 9 -->
-<section class="page"><div class="paper">
-<div class="num">PAGE 09 · FROM YOUR PROTON</div>
-<h2>You don't have to earn your place 💗</h2>
-<div class="letter">You don't have to be useful, funny, strong, or available every second to be important to me. Friendship isn't a scorecard, and you never need to carry every conversation perfectly.
-
-I appreciate you for who you are — not because you always know what to say, but because you're Divya. My Dora. The friend who helped an electron feel a little more like a proton.
-
-Thank you for being part of my story.</div>
-</div></section>
-
-<!-- PAGE 10 -->
-<section class="page"><div class="paper">
-<div class="num">PAGE 10 · THANK YOU FOR EVERYTHING</div>
-<h2>Thank you, Dora 🫂</h2>
-<div class="letter">If I could give you one thing, it would be the chance to see yourself through the grateful eyes of the people whose lives you've made brighter.
-
-Thank you for the memories, comfort, laughs, patience, and the little ways you helped me grow. Thank you for being a safe place without even knowing how much that meant.
-
-No matter where life takes me, I'll always be there to irritate you. 😁
-
-Always cheering for you,
-your Proton ⚛️💗</div>
-<div class="sign">P.S. You're not getting rid of me that easily, Dora. 😂</div>
-</div></section>
-
-<div class="controls">
-<button class="nav" id="prev" disabled>← Previous</button>
-<span id="counter">Page 1 of 10</span>
-<button class="nav" id="next">Next →</button>
-</div>
-
-<footer>Made with care, for my Dora 🌷</footer>
-</main>
-
-<audio id="song" preload="auto" loop playsinline>
- <source src="song.mp3" type="audio/mpeg">
-</audio>
-
-<button class="music" id="music">🎵</button>
+<audio id="song" src="song.mp3" loop preload="auto"></audio>
 
 <script>
-const pages=[...document.querySelectorAll('.page')];
-let current=0;
+const envelope = document.getElementById("envelope");
+const intro = document.getElementById("intro");
+const letter = document.getElementById("letter");
+const song = document.getElementById("song");
+const pages = document.querySelectorAll(".page");
+const prev = document.getElementById("prev");
+const next = document.getElementById("next");
+const pageCount = document.getElementById("pageCount");
+const openAgain = document.getElementById("openAgain");
 
-const prev=document.getElementById('prev');
-const next=document.getElementById('next');
-const counter=document.getElementById('counter');
+let currentPage = 0;
+let opened = false;
 
-function showPage(n){
- current=Math.max(0,Math.min(9,n));
- pages.forEach((p,i)=>p.classList.toggle('active',i===current));
- prev.disabled=current===0;
- next.disabled=current===9;
- counter.textContent=`Page ${current+1} of 10`;
- window.scrollTo({top:0,behavior:'smooth'});
+function openLetter() {
+  if (opened) return;
+
+  opened = true;
+  envelope.classList.add("open");
+
+  // Browsers require a tap before audio can autoplay.
+  song.play().catch(() => {
+    document.getElementById("musicNote").textContent =
+      "🎵 Tap play on your browser if the song doesn't start.";
+  });
+
+  setTimeout(() => {
+    intro.style.display = "none";
+    letter.style.display = "block";
+    showPage(0);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, 1000);
 }
 
-prev.onclick=()=>showPage(current-1);
-next.onclick=()=>showPage(current+1);
-document.getElementById('envelope').onclick=()=>showPage(0);
+envelope.addEventListener("click", openLetter);
 
-const intro=document.getElementById('intro');
-const song=document.getElementById('song');
-const music=document.getElementById('music');
-
-function enter(){
- intro.classList.add('hide');
- song.volume=.7;
- song.play()
-  .then(()=>music.textContent='🔊')
-  .catch(()=>music.textContent='🎵');
-}
-
-document.getElementById('open').addEventListener('click',enter);
-
-intro.addEventListener('click',e=>{
- if(e.target.id!=='open') enter();
+envelope.addEventListener("keydown", (event) => {
+  if (event.key === "Enter" || event.key === " ") {
+    event.preventDefault();
+    openLetter();
+  }
 });
 
-music.onclick=()=>{
- if(song.paused){
-  song.play().then(()=>music.textContent='🔊').catch(()=>{});
- }else{
-  song.pause();
-  music.textContent='🎵';
- }
-};
+function showPage(index) {
+  currentPage = index;
+
+  pages.forEach((page, i) => {
+    page.classList.toggle("active", i === currentPage);
+  });
+
+  prev.disabled = currentPage === 0;
+
+  if (currentPage === pages.length - 1) {
+    next.style.display = "none";
+  } else {
+    next.style.display = "inline-block";
+  }
+
+  pageCount.textContent =
+    `Page ${currentPage + 1} of ${pages.length}`;
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+next.addEventListener("click", () => {
+  if (currentPage < pages.length - 1) {
+    showPage(currentPage + 1);
+  }
+});
+
+prev.addEventListener("click", () => {
+  if (currentPage > 0) {
+    showPage(currentPage - 1);
+  }
+});
+
+openAgain.addEventListener("click", () => {
+  showPage(0);
+});
+
+// Floating hearts
+for (let i = 0; i < 18; i++) {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.textContent = ["♡", "♥", "✿"][i % 3];
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDelay = Math.random() * 8 + "s";
+  heart.style.animationDuration = (6 + Math.random() * 6) + "s";
+  heart.style.fontSize = (14 + Math.random() * 20) + "px";
+  document.body.appendChild(heart);
+}
 </script>
+
 </body>
 </html>
-
 
