@@ -12,17 +12,23 @@
   padding: 0;
 }
 
+/* UPDATED PASTEL BACKGROUND */
+html {
+  min-height: 100%;
+  background: #f8dce9 !important;
+}
+
 body {
-  min-height: 100vh;
+  min-height: 100vh !important;
   font-family: Georgia, serif;
   background: linear-gradient(
     135deg,
-    #fce4ec 0%,
-    #f8bbd0 25%,
-    #ede7f6 60%,
-    #e1f5fe 100%
-  );
-  background-attachment: fixed;
+    #ffe4ef 0%,
+    #f5c6df 30%,
+    #e6d9ff 65%,
+    #d8f0ff 100%
+  ) fixed !important;
+  background-color: #f5c6df !important;
   color: #594158;
   display: flex;
   justify-content: center;
@@ -169,7 +175,7 @@ h1 {
   50% { opacity: .55; }
 }
 
-/* Letter and pages */
+/* Letter pages */
 #letter {
   display: none;
   animation: fadeIn 1s ease;
@@ -224,7 +230,7 @@ h1 {
   background: #f7eaf0;
 }
 
-/* Navigation */
+/* Navigation buttons */
 .controls {
   display: flex;
   gap: 12px;
@@ -283,6 +289,7 @@ footer {
   h1 { font-size: 1.7rem; }
   .page { padding: 24px 17px; }
   .page p { font-size: 1rem; }
+
   .envelope-area {
     transform: scale(.92);
     transform-origin: center;
@@ -293,9 +300,6 @@ footer {
   .heart, .hint {
     animation: none;
   }
-  * {
-    scroll-behavior: auto !important;
-  }
 }
 </style>
 </head>
@@ -304,6 +308,7 @@ footer {
 
 <div class="container">
 
+  <!-- ENVELOPE INTRO -->
   <section id="intro">
     <h1>For My Dora 🧸💗</h1>
 
@@ -330,9 +335,9 @@ footer {
     <p class="hint">Tap the envelope to open your letter 💌</p>
   </section>
 
+  <!-- TEN LETTER PAGES -->
   <main id="letter">
 
-    <!-- PAGE 1 -->
     <section class="page active">
       <h2>Dear Dora, 💌</h2>
       <p>
@@ -340,19 +345,18 @@ Hey, Divya! 🥹💗
 
 I don't even know where to begin because how do I fit so much gratitude into just a few pages?
 
-But today, I want you to know something: having you in my life is a gift I never want to take for granted.
+Having you in my life is a gift I never want to take for granted.
 
 So, take your time and read this little piece of my heart.
       </p>
     </section>
 
-    <!-- PAGE 2 -->
     <section class="page">
       <h2>From Electron to Proton ⚛️</h2>
       <p>
 Remember how you turned an electron into a proton? 😭😂
 
-Okay, scientifically, that might need a whole different explanation, but emotionally, you know exactly what I mean.
+Scientifically, that might need a whole different explanation, but emotionally, you know exactly what I mean.
 
 You brought a different kind of energy into my life. You made me feel a little more grounded, a little more understood, and a little less alone.
 
@@ -360,7 +364,6 @@ Thank you for being part of my journey.
       </p>
     </section>
 
-    <!-- PAGE 3 -->
     <section class="page">
       <h2>My Safe Place 🫂</h2>
       <p>
@@ -374,7 +377,6 @@ Thank you for making ordinary moments feel a little less heavy.
       </p>
     </section>
 
-    <!-- PAGE 4 -->
     <section class="page">
       <h2>Our Little Memories 📸</h2>
       <p>
@@ -389,7 +391,6 @@ Here are a few memories I want to keep close. 💗
       <img class="memory-photo" src="pic1.jpg" alt="Our memory 1">
     </section>
 
-    <!-- PAGE 5 -->
     <section class="page">
       <h2>Little Things, Big Meaning 🌷</h2>
       <p>
@@ -407,7 +408,6 @@ But I notice them, Dora. And I'm grateful. 🥹
       <img class="memory-photo" src="pic2.jpg" alt="Our memory 2">
     </section>
 
-    <!-- PAGE 6 -->
     <section class="page">
       <h2>Thank You for Being You 🧸</h2>
       <p>
@@ -424,7 +424,6 @@ The person you are is already someone worth appreciating.
       <img class="memory-photo" src="pic3.jpg" alt="Our memory 3">
     </section>
 
-    <!-- PAGE 7 -->
     <section class="page">
       <h2>For the Days Ahead 🌈</h2>
       <p>
@@ -441,7 +440,6 @@ You deserve happiness, Dora. Always. 💗
       <img class="memory-photo" src="pic4.jpg" alt="Our memory 4">
     </section>
 
-    <!-- PAGE 8 -->
     <section class="page">
       <h2>One More Memory 🌻</h2>
       <p>
@@ -456,7 +454,6 @@ Here's another little piece of our story. 🫶🏻
       <img class="memory-photo" src="pic5.jpg" alt="Our memory 5">
     </section>
 
-    <!-- PAGE 9 -->
     <section class="page">
       <h2>You're Appreciated, Dora 💐</h2>
       <p>
@@ -473,7 +470,6 @@ I'm genuinely glad I got to know you.
       <img class="memory-photo" src="pic6.jpg" alt="Our memory 6">
     </section>
 
-    <!-- PAGE 10 -->
     <section class="page">
       <h2>Always Your Proton ⚛️</h2>
       <p>
@@ -489,17 +485,18 @@ Thank you for being my Dora.
 
 From your Proton, with a grateful heart. 💗
       </p>
+
       <img class="memory-photo" src="pic7.jpg" alt="Our memory 7">
 
-      <p style="margin-top: 22px;">
-A little extra message, just for you... 🌷
+      <p style="margin-top:22px;">
+This letter isn't a request for anything. You don't have to find the perfect reply.
 
-This letter isn't a request for anything. You don't have to find the perfect reply. I just wanted to make you smile and remind you that your friendship has made a difference in my life.
+I just wanted to make you smile and remind you that your friendship has made a difference in my life.
 
 Thank you for everything, Divya. I'm lucky to call you my best friend. 🫂💗
       </p>
 
-      <button id="openAgain" style="margin-top: 20px;">
+      <button id="openAgain" style="margin-top:20px;">
         Read Again 💌
       </button>
     </section>
@@ -510,14 +507,14 @@ Thank you for everything, Divya. I'm lucky to call you my best friend. 🫂💗
     </div>
 
     <p class="page-count" id="pageCount">Page 1 of 10</p>
-    <p id="musicNote">🎵 A song for you, Dora</p>
+    <p id="musicNote">🎵 A song for you, Dora 💗</p>
 
   </main>
 
   <footer>Made with love, just for Dora 💗</footer>
-
 </div>
 
+<!-- KEEP song.mp3 IN THE SAME FOLDER -->
 <audio id="song" src="song.mp3" loop preload="auto"></audio>
 
 <script>
@@ -541,14 +538,13 @@ function openLetter() {
 
   envelope.classList.add("open");
 
-  // Music starts after the envelope is tapped.
   song.play()
     .then(() => {
       musicNote.textContent = "🎵 Playing your song, Dora 💗";
     })
     .catch(() => {
       musicNote.textContent =
-        "🎵 If the song doesn't start, check song.mp3 and tap play in your browser.";
+        "🎵 Check that song.mp3 is in the same folder.";
     });
 
   setTimeout(() => {
@@ -616,4 +612,3 @@ for (let i = 0; i < 20; i++) {
 
 </body>
 </html>
-
