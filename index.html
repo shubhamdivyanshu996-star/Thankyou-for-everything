@@ -4,253 +4,310 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Dora 💗</title>
+<title>For Divya, My Dora 💌</title>
 
 <style>
 *{box-sizing:border-box}
 body{
-  margin:0;background:#fff4f8;color:#754357;
-  font-family:Georgia,serif;text-align:center;
+ margin:0;min-height:100vh;
+ font-family:Georgia,serif;color:#fff5fb;
+ background:radial-gradient(ellipse at top,#432958,#191329 55%,#080710);
 }
-header{
-  padding:75px 20px 60px;
-  background:linear-gradient(145deg,#ffe0ec,#f5e6ff,#fff7fa);
+#intro{
+ position:fixed;inset:0;z-index:10;
+ display:grid;place-items:center;text-align:center;
+ padding:25px;background:radial-gradient(ellipse,#39264f,#100d1c 75%);
+ transition:opacity .8s;
 }
-h1{font-size:43px;font-weight:normal;line-height:1.25}
-h2{font-weight:normal;font-size:28px}
-p{font-size:16px;line-height:1.9}
-.pink{color:#c45e88;font-style:italic}
+#intro.hide{opacity:0;pointer-events:none}
+.introbox{max-width:420px}
+.bigenv{font-size:85px;animation:float 2s infinite}
+@keyframes float{50%{transform:translateY(-8px)}}
+
 button{
-  background:#c96f92;color:white;border:0;
-  padding:13px 22px;border-radius:25px;
-  font-size:15px;margin:12px 0;cursor:pointer;
+ border:0;color:white;cursor:pointer;
+ background:linear-gradient(135deg,#a66bff,#ff78b8);
+ box-shadow:0 5px 24px #bb6aff44;
 }
-section{padding:40px 18px}
-.card{
-  background:white;border:1px solid #f3d5e0;
-  padding:24px 20px;border-radius:18px;
-  max-width:520px;margin:20px auto;
-  box-shadow:0 6px 25px #a9547210;
+.open{padding:14px 23px;border-radius:30px;font-weight:bold}
+
+main{max-width:760px;margin:auto;padding:25px 15px 90px}
+.kicker{text-align:center;color:#ddc9ef;letter-spacing:2px;font-size:12px}
+
+.envelope{
+ height:80px;max-width:420px;margin:12px auto 20px;
+ position:relative;display:grid;place-items:center;cursor:pointer;
 }
+.envback{
+ position:absolute;inset:0;border-radius:10px;
+ background:linear-gradient(135deg,#bd83ed,#f7a0ca);
+}
+.flap{
+ position:absolute;inset:0 0 auto;height:60%;
+ background:#ffc0df;clip-path:polygon(0 0,100% 0,50% 100%);
+}
+.seal{z-index:1;font-size:26px}
+
+.page{display:none;animation:appear .4s}
+.page.active{display:block}
+@keyframes appear{
+ from{opacity:0;transform:translateY(10px)}
+ to{opacity:1;transform:none}
+}
+.paper{
+ background:linear-gradient(145deg,#fff9fc,#f2e8ff);
+ color:#30223d;border-radius:22px;
+ padding:clamp(22px,5vw,38px);
+ min-height:390px;box-shadow:0 20px 60px #0005;
+}
+.num{font:12px Arial;letter-spacing:2px;color:#9562ac}
+h2{font-size:clamp(25px,6vw,34px);color:#573366}
+.letter{font-size:clamp(16px,4vw,19px);line-height:1.8;white-space:pre-line}
+.sign{text-align:right;font-style:italic;color:#8d4e92;margin-top:20px}
+
 .photos{
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:12px;max-width:650px;margin:25px auto;
+ display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:10px;margin:18px 0;
 }
 .photos img{
-  width:100%;height:210px;object-fit:cover;
-  border-radius:12px;background:#f6dce7;
+ width:100%;height:175px;object-fit:cover;
+ border-radius:12px;border:4px solid white;
+ background:#e4d4ee;
 }
-.photos figure{
-  margin:0;background:white;padding:8px 8px 14px;
-  border-radius:12px;box-shadow:0 4px 15px #9e536415;
+.photos img:last-child:nth-child(odd){
+ grid-column:1/-1;max-width:70%;justify-self:center;
 }
-.photos figcaption{font-size:13px;margin-top:10px;line-height:1.6}
-.photos figure:last-child{grid-column:1/-1}
-.photos figure:last-child img{height:260px}
-.letter{text-align:left}
-.letter p{margin-bottom:18px}
-#surprise{display:none}
-footer{padding:30px 15px;color:#bd8098;font-size:12px}
+.controls{
+ display:flex;align-items:center;justify-content:space-between;
+ gap:10px;margin:18px 0;
+}
+.nav{padding:12px 15px;border-radius:25px;font-weight:bold}
+.nav:disabled{opacity:.35}
+#counter{font:13px Arial;color:#e8d9f5}
+.music{
+ position:fixed;right:16px;bottom:18px;
+ width:52px;height:52px;border-radius:50%;
+ z-index:15;font-size:22px;
+}
+footer{text-align:center;color:#cbb9df;font-size:12px}
+
+@media(max-width:430px){
+ .photos img{height:140px}
+ .paper{min-height:420px}
+}
 </style>
 </head>
 
 <body>
 
-<header>
-  <div style="font-size:48px">💌</div>
-  <p style="letter-spacing:3px;font-size:11px">A LITTLE SOMETHING FOR YOU</p>
-  <h1>For my <span class="pink">Dora</span> 💗</h1>
-  <p>To Divya, my best friend, my safe place, my favourite human.</p>
-  <a href="#letter"><button>Read my letter ♡</button></a>
-</header>
-
-<section>
-  <h2>Hey, Dora! 🌷</h2>
-  <div class="card">
-    <p>
-      Out of all the people I could've met, somehow life
-      brought me to you. And honestly, that's something
-      I'll always be thankful for.
-    </p>
-    <p>
-      You entered my life without knowing how much your
-      presence would come to mean to me. 💗
-    </p>
-  </div>
+<section id="intro">
+ <div class="introbox">
+  <div class="bigenv">💌</div>
+  <h1>A little letter for Divya 🌷</h1>
+  <p>For my Dora — the person who made life feel safer, warmer, and less lonely.</p>
+  <button class="open" id="open">OPEN YOUR LETTER 💗</button>
+  <p style="font-size:12px">Tap to open your surprise and start the song.</p>
+ </div>
 </section>
 
-<section>
-  <h2>Seven little memories 📸</h2>
-  <p>Seven pictures, countless feelings, one precious friendship.</p>
+<main>
+<p class="kicker">A little piece of my heart · For Divya</p>
 
-  <div class="photos">
-    <figure>
-      <img src="pic1.jpg" alt="Memory one">
-      <figcaption>The beginning of something special ♡</figcaption>
-    </figure>
-    <figure>
-      <img src="pic2.jpg" alt="Memory two">
-      <figcaption>Little moments I cherish.</figcaption>
-    </figure>
-    <figure>
-      <img src="pic3.jpg" alt="Memory three">
-      <figcaption>My favourite bakwaas partner 😭</figcaption>
-    </figure>
-    <figure>
-      <img src="pic4.jpg" alt="Memory four">
-      <figcaption>A little peace in a loud world.</figcaption>
-    </figure>
-    <figure>
-      <img src="pic5.jpg" alt="Memory five">
-      <figcaption>Growing and learning together.</figcaption>
-    </figure>
-    <figure>
-      <img src="pic6.jpg" alt="Memory six">
-      <figcaption>Thankful for the little things.</figcaption>
-    </figure>
-    <figure>
-      <img src="pic7.jpg" alt="Memory seven">
-      <figcaption>One of my favourite people. Forever grateful. 💗</figcaption>
-    </figure>
-  </div>
+<div class="envelope" id="envelope">
+ <div class="envback"></div>
+ <div class="flap"></div>
+ <div class="seal">💗</div>
+</div>
+
+<!-- PAGE 1 -->
+<section class="page active">
+<div class="paper">
+<div class="num">PAGE 01 · THE BEGINNING</div>
+<h2>To my Dora, Divya 🌷</h2>
+<div class="letter">I don't think a simple “thank you” could ever hold everything I want to say to you.
+
+Some people enter our lives quietly and become a place our hearts can rest. Somehow, you became that person for me.
+
+This little website is for every conversation, every laugh, every time you stayed, and every little thing you might not realise mattered.</div>
+<div class="sign">With gratitude, your Proton 💌</div>
+</div>
 </section>
 
-<section>
-  <h2>From electron to <span class="pink">Proton</span> ⚛️</h2>
-  <div class="card">
-    <div style="font-size:45px">⚛️</div>
-    <p>
-      I started as an electron, carrying countless thoughts
-      and moving around inside my own little world.
-    </p>
-    <p>
-      Then you came along, Dora. Through our friendship,
-      I began to see things a little differently. I found
-      comfort in conversations, warmth in little moments,
-      and reasons to appreciate the person I'm becoming.
-    </p>
-    <p>
-      You didn't have to fix me or change everything.
-      Your friendship itself became something precious.
-      That's why being your Proton will always mean
-      something special to me. 💗
-    </p>
-  </div>
-</section>
+<!-- PAGE 2 -->
+<section class="page"><div class="paper">
+<div class="num">PAGE 02 · ELECTRON TO PROTON</div>
+<h2>You changed something in me ⚛️</h2>
+<div class="letter">You always joke that you converted me from an electron into a proton — and honestly, that's such a Dora way to describe something meaningful.
 
-<section>
-  <h2>♫ A song for you</h2>
-  <div class="card">
-    <p>A little music to go with this little letter. 🎧</p>
-    <audio controls loop style="width:100%">
-      <source src="song.mp3" type="audio/mpeg">
-      Your browser doesn't support this audio.
-    </audio>
-    <p style="font-size:12px">Add your song as song.mp3 to your repository.</p>
-  </div>
-</section>
+You brought more positivity into my world. You reminded me that even when my thoughts get too loud, someone can make things feel lighter.
 
-<section id="letter">
-  <h2>Dear Dora, 💗</h2>
-  <div class="card letter">
-    <p>Dear Divya,</p>
+I'm still a work in progress, but I'm grateful for the little changes that began with you.</div>
+</div></section>
 
-    <p>
-      I don't think a simple thank-you could ever explain
-      how grateful I am that you entered my life, but I
-      still want to try.
-    </p>
+<!-- PAGE 3 -->
+<section class="page"><div class="paper">
+<div class="num">PAGE 03 · MY SAFE PLACE</div>
+<h2>You became my safe place 🫶</h2>
+<div class="letter">Thank you for being someone I can talk to without making every feeling sound perfect.
 
-    <p>
-      Thank you for listening to my endless bakwaas,
-      for being patient with me, for laughing with me,
-      and for making ordinary conversations feel special.
-    </p>
+Thank you for listening to my random thoughts, serious moments, and all the bakwaas in between. With you, I don't always have to pretend everything is fine.
 
-    <p>
-      Thank you for being a safe place in a world that
-      sometimes feels too loud. For letting me talk,
-      overthink, be weird, and be myself without always
-      having to find the perfect words.
-    </p>
+You made being understood feel a little less impossible. I'll always be thankful for the comfort and trust we've built.</div>
+</div></section>
 
-    <p>
-      I know I can be complicated sometimes. I overthink,
-      go quiet, and struggle to explain what's happening
-      inside my head. But your friendship has reminded
-      me how much a little understanding can mean.
-    </p>
+<!-- PAGE 4 -->
+<section class="page"><div class="paper">
+<div class="num">PAGE 04 · THE LITTLE THINGS</div>
+<h2>It's the little things 🌼</h2>
+<div class="letter">It's not only the big moments I'll remember. It's the small check-ins, the silly jokes, the way an ordinary conversation can turn a day around, and the memories that looked simple when they happened.
 
-    <p>
-      And Dora, I hope you know that this friendship isn't
-      only about what you've done for me. Your happiness
-      matters to me, too. Your dreams, your difficult days,
-      your little victories — I hope you always know
-      that you deserve to be heard and appreciated.
-    </p>
+You may not notice every little thing you do, Dora, but some of those things have meant more to me than I can explain.
 
-    <p>
-      You don't have to be strong every day. You don't
-      always have to make everyone else smile. I hope
-      you can be yourself around me, even when life feels
-      difficult. You deserve the same warmth you give
-      to the people around you.
-    </p>
+Thank you for being you — without needing to do anything extraordinary.</div>
+</div></section>
 
-    <p>
-      Maybe life will get busy, and maybe our routines
-      will change. But I'll always be thankful that our
-      roads crossed and that I got to call you my best friend.
-    </p>
+<!-- PAGE 5: SEVEN PHOTOS -->
+<section class="page"><div class="paper">
+<div class="num">PAGE 05 · OUR MEMORIES</div>
+<h2>Seven little memories 📸</h2>
+<div class="letter">Every picture has its own story, and every story reminds me how glad I am that our paths crossed.</div>
 
-    <p>
-      No matter where life takes us, I hope we keep
-      sharing our nonsense, cheering for each other,
-      and irritating each other for a very long time. 😭
-    </p>
+<div class="photos">
+<img src="photos/pic1.jpg" alt="Memory 1">
+<img src="photos/pic2.jpg" alt="Memory 2">
+<img src="photos/pic3.jpg" alt="Memory 3">
+<img src="photos/pic4.jpg" alt="Memory 4">
+<img src="photos/pic5.jpg" alt="Memory 5">
+<img src="photos/pic6.jpg" alt="Memory 6">
+<img src="photos/pic7.jpg" alt="Memory 7">
+</div>
 
-    <p>
-      Thank you for entering my life. Thank you for
-      being my Dora. Thank you for helping this little
-      electron feel a little more like a Proton.
-    </p>
+<p style="text-align:center">Our memories, kept close 💗</p>
+</div></section>
 
-    <p>
-      I'm forever thankful for you, Divya. More than
-      these words could ever explain. 💗
-    </p>
+<!-- PAGE 6 -->
+<section class="page"><div class="paper">
+<div class="num">PAGE 06 · MY FAVOURITE CHAOS</div>
+<h2>Never stop being Dora 😭</h2>
+<div class="letter">Thank you for the laughter, teasing, weird conversations, and the kind of friendship where even nonsense becomes a memory.
 
-    <p style="text-align:right;font-style:italic;color:#bd6689">
-      Always your Proton,<br>
-      with love and gratitude. ♡
-    </p>
-  </div>
-</section>
+You have this way of making ordinary things feel special without even trying. And yes, I will absolutely continue to irritate you — it's part of my job description now. 😌
 
-<section style="background:#fbe5ef">
-  <h2>One last little surprise 🎀</h2>
-  <p>A tiny reminder for my Dora.</p>
-  <button onclick="document.getElementById('surprise').style.display='block';this.style.display='none'">
-    Open your surprise 💐
-  </button>
-  <div id="surprise" class="card">
-    <div style="font-size:55px">💐</div>
-    <h2>For you, Dora.</h2>
-    <p>
-      I hope life gives you beautiful days, peaceful
-      nights, genuine smiles, and people who appreciate
-      your heart.
-    </p>
-    <p>You'll always have a friend cheering for you. 💗</p>
-    <p class="pink">Forever your Proton. ⚛️</p>
-  </div>
-</section>
+You're stuck with your Proton, respectfully. 😂</div>
+</div></section>
 
-<footer>
-  Made with love, just for Divya. 💗<br>
-  From your Proton, always.
-</footer>
+<!-- PAGE 7 -->
+<section class="page"><div class="paper">
+<div class="num">PAGE 07 · WHAT I ADMIRE</div>
+<h2>I hope you see it too ✨</h2>
+<div class="letter">I hope you know that you matter beyond what you do for other people. You deserve kindness on cheerful days and on days when you don't have the energy to be cheerful at all.
 
+You don't have to fix everything or always have the right words. Your presence, honesty, and the person you are already mean a lot.
+
+I hope life gives you back some of the warmth you give to others.</div>
+</div></section>
+
+<!-- PAGE 8 -->
+<section class="page"><div class="paper">
+<div class="num">PAGE 08 · WHEREVER LIFE GOES</div>
+<h2>Different roads, same gratitude 🌙</h2>
+<div class="letter">Life will keep changing. Our routines might change, our days might get busier, and there may be times when we don't talk as much as we'd like.
+
+But wherever life takes me, I'll always be grateful that I got to know you. I'll be cheering for you, wishing good things for you, and hoping you never forget how much you deserve them.
+
+And obviously, I'll still be there to irritate you. 😁</div>
+</div></section>
+
+<!-- PAGE 9 -->
+<section class="page"><div class="paper">
+<div class="num">PAGE 09 · FROM YOUR PROTON</div>
+<h2>You don't have to earn your place 💗</h2>
+<div class="letter">You don't have to be useful, funny, strong, or available every second to be important to me. Friendship isn't a scorecard, and you never need to carry every conversation perfectly.
+
+I appreciate you for who you are — not because you always know what to say, but because you're Divya. My Dora. The friend who helped an electron feel a little more like a proton.
+
+Thank you for being part of my story.</div>
+</div></section>
+
+<!-- PAGE 10 -->
+<section class="page"><div class="paper">
+<div class="num">PAGE 10 · THANK YOU FOR EVERYTHING</div>
+<h2>Thank you, Dora 🫂</h2>
+<div class="letter">If I could give you one thing, it would be the chance to see yourself through the grateful eyes of the people whose lives you've made brighter.
+
+Thank you for the memories, comfort, laughs, patience, and the little ways you helped me grow. Thank you for being a safe place without even knowing how much that meant.
+
+No matter where life takes me, I'll always be there to irritate you. 😁
+
+Always cheering for you,
+your Proton ⚛️💗</div>
+<div class="sign">P.S. You're not getting rid of me that easily, Dora. 😂</div>
+</div></section>
+
+<div class="controls">
+<button class="nav" id="prev" disabled>← Previous</button>
+<span id="counter">Page 1 of 10</span>
+<button class="nav" id="next">Next →</button>
+</div>
+
+<footer>Made with care, for my Dora 🌷</footer>
+</main>
+
+<audio id="song" preload="auto" loop playsinline>
+ <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music" id="music">🎵</button>
+
+<script>
+const pages=[...document.querySelectorAll('.page')];
+let current=0;
+
+const prev=document.getElementById('prev');
+const next=document.getElementById('next');
+const counter=document.getElementById('counter');
+
+function showPage(n){
+ current=Math.max(0,Math.min(9,n));
+ pages.forEach((p,i)=>p.classList.toggle('active',i===current));
+ prev.disabled=current===0;
+ next.disabled=current===9;
+ counter.textContent=`Page ${current+1} of 10`;
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+
+prev.onclick=()=>showPage(current-1);
+next.onclick=()=>showPage(current+1);
+document.getElementById('envelope').onclick=()=>showPage(0);
+
+const intro=document.getElementById('intro');
+const song=document.getElementById('song');
+const music=document.getElementById('music');
+
+function enter(){
+ intro.classList.add('hide');
+ song.volume=.7;
+ song.play()
+  .then(()=>music.textContent='🔊')
+  .catch(()=>music.textContent='🎵');
+}
+
+document.getElementById('open').addEventListener('click',enter);
+
+intro.addEventListener('click',e=>{
+ if(e.target.id!=='open') enter();
+});
+
+music.onclick=()=>{
+ if(song.paused){
+  song.play().then(()=>music.textContent='🔊').catch(()=>{});
+ }else{
+  song.pause();
+  music.textContent='🎵';
+ }
+};
+</script>
 </body>
 </html>
+
 
